@@ -1,0 +1,95 @@
+﻿<Window x:Class="MovieCentral.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SettingsWindow" Height="350" Width="500" Background="#102540" WindowStyle="None">
+    
+    <Window.Resources>
+        <Style x:Key="EmptyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="BorderBrush" Value="#00000000"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Height="32" HorizontalContentAlignment="Left" Foreground="White" 
+                   FontFamily="Segoe UI Light" FontSize="18" Content="Settings" Margin="20 0 0 0" />
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+            
+            <Button Name="btnMinimizeWindow" Height="32" Width="32" Click="btnMinimizeWindow_Click" 
+                    Margin="10 0 0 0" Style="{DynamicResource EmptyButtonStyle}">
+                <Image Source="/Icons/Minus-128.png"/>
+            </Button>
+            <Button Name="btnCloseWindow" Height="32" Width="32" Click="btnCloseWindow_Click" 
+                    Margin="10 0 20 0" Style="{DynamicResource EmptyButtonStyle}">
+                <Image Source="/Icons/Close-128.png"/>
+            </Button>
+        </StackPanel>
+             
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <Rectangle Height="1" Fill="#8BB4E2"></Rectangle>
+            <Label Name="lblStatus" Height="30" HorizontalContentAlignment="Left" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="14" Content="Theme" Margin="20 0 0 0" />
+            <StackPanel Orientation="Horizontal">
+            <ComboBox Name="cmbTheme" Height="32" Width="380" Margin="20 0 20 0" 
+                      Background="#8BB4E2" SelectedValuePath="Content" VerticalAlignment="Bottom">
+                <ComboBoxItem Content="Blue"></ComboBoxItem>
+                <ComboBoxItem Content="Green"></ComboBoxItem>
+                <ComboBoxItem Content="Grey"></ComboBoxItem>
+                <ComboBoxItem Content="Purple"></ComboBoxItem>
+                <ComboBoxItem Content="Red"></ComboBoxItem>
+                <ComboBoxItem Content="Orange"></ComboBoxItem>
+            </ComboBox>
+            <Button Name="btnSaveTheme" Height="32" Width="32" Click="btnSaveTheme_Click"
+                    HorizontalAlignment="Right" Margin="0 10 20 0" Style="{DynamicResource EmptyButtonStyle}">
+                <Image Source="/Icons/Save-128.png"/>
+            </Button>
+                </StackPanel>
+            <Rectangle Fill="#8BB4E2" Height="1" Margin="0 30 0 5"></Rectangle>
+            <Label Height="30" HorizontalContentAlignment="Left" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="14" Content="About Movie Central" Margin="20 0 20 0" />
+            <TextBlock Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="10" Margin="20 0 20 10">                
+                A project by Siddhartha "Sid" Roy.<LineBreak/>
+                Movie Central ver. 5.0<LineBreak/>
+                2012-2015<LineBreak/>
+                Project location - http://sourceforge.com/projects/movie-central
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="20 0 20 10">
+                <Image Height="24" Source="/Icons/Mail-32.png"/>
+                <Label Height="24" Width="200" VerticalAlignment="Center" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="10" Content="sidtechster@gmail.com"/>
+                <Image Height="24" Source="/Icons/Twitter-Bird-32.png"/>
+                <Label Height="24" VerticalAlignment="Center" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="10" Content="@sidtechster"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 0 20 0">
+                <Image Height="24" Source="/Icons/Youtube1-32.png"/>
+                <Label Height="24" Width="200" VerticalAlignment="Center" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="10" Content="youtu.be/ul2Tl1tYUws"/>
+                <Image Height="24" Source="/Icons/Facebook-32.png"/>
+                <Label Height="24" VerticalAlignment="Center" Foreground="White" 
+                   FontFamily="Segoe UI Semilight" FontSize="10" Content="facebook.com/MovieCentral2015"/>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+    </Grid>
+</Window>
