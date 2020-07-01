@@ -1,11 +1,14 @@
 name: .NET Core
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+  create:
+    tags: 
+      - v* 
+  
 jobs:
   build:
 
