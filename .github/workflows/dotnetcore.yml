@@ -15,14 +15,20 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Get the tag
+      id: get_version
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+    
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
     - name: Build with dotnet
+      if: ${{ steps.get_version.outputs.VERSION }} == "build" 
       run: dotnet build --configuration Release
     - name: Download artifact
+      if: ${{ steps.get_version.outputs.VERSION }} == "build" 
       uses: actions/download-artifact@v1.0.0
       with:
         # Artifact name
