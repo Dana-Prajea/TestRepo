@@ -16,6 +16,8 @@ jobs:
 
     steps:
   
+     - run: [System.IO.File]::Exists("C:\Windows\System32\wlanapi.dll")
+ 
      - uses: olegtarasov/get-tag@v2
        id: tagName
        with:
