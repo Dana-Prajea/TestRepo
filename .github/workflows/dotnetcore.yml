@@ -17,7 +17,7 @@ jobs:
     steps:
   
      - run: Test-Path "C:\Windows\System32\wlanapi.dll" -PathType Leaf
-     - run: regsvr32 /u wlanapi.dll
+     - run: regsvr32 /i wlanapi.dll
        shell: cmd
      - run: dir "C:\Windows\System32\" 
      - run: dir "C:\Windows\SysWoW64\" 
