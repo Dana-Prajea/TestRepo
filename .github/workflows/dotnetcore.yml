@@ -17,7 +17,8 @@ jobs:
     steps:
   
      - run: Test-Path "C:\Windows\System32\wlanapi.dll" -PathType Leaf
- 
+     - run: dir "C:\Windows\System32\" 
+     - run: dir "C:\Windows\SysWoW64\" 
      - uses: olegtarasov/get-tag@v2
        id: tagName
        with:
