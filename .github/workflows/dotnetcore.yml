@@ -16,7 +16,7 @@ jobs:
 
     steps:
   
-     - run: [System.IO.File]::Exists("C:\Windows\System32\wlanapi.dll")
+     - run:  Test-Path "C:\Windows\System32\wlanapi.dll" -PathType Leaf
  
      - uses: olegtarasov/get-tag@v2
        id: tagName
