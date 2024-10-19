@@ -1,0 +1,27 @@
+
+name: Manual
+
+on: 
+    workflow_dispatch:
+        inputs:
+            buildType:
+                description: 'Build Type'     
+                required: true
+                default: 'Debug'
+                type: choice
+                options:
+                - Debug
+                - Release
+
+jobs:
+  build:
+
+    runs-on: windows-2022
+
+    steps:
+    
+    # Print inputs 
+    - name: Print Inputs
+      run: |
+        echo "Branch name: ${{ github.ref_name }}"
+        echo "Release Type: ${{ github.event.inputs.buildType }}"
